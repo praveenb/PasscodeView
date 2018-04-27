@@ -69,6 +69,7 @@ final class BoxFingerprint extends Box implements FingerPrintAuthHelper.FingerPr
     }
 
     private void init() {
+        preparePaint();
         isFingerPrintBoxVisible = Utils.isFingerPrintEnrolled(getContext());
 
         if (isFingerPrintBoxVisible) {
