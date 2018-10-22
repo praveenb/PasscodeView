@@ -138,6 +138,8 @@ final class FingerPrintAuthHelper {
 
             //Fingerprint API only available on from Android 6.0 (M)
             FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
+            if(fingerprintManager==null)
+                return false;
 
             if (!fingerprintManager.isHardwareDetected()) {
                 return false;

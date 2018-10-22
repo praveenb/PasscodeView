@@ -68,6 +68,8 @@ public final class Utils {
     public static boolean isSupportedHardware(Context context) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return false;
         FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
+        if(fingerprintManager==null)
+            return false;
         return fingerprintManager.isHardwareDetected();
     }
 
@@ -86,6 +88,8 @@ public final class Utils {
 
             //Fingerprint API only available on from Android 6.0 (M)
             FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
+            if(fingerprintManager==null)
+                return false;
             return !(!fingerprintManager.isHardwareDetected() || !fingerprintManager.hasEnrolledFingerprints());
         } else {
             return false;
